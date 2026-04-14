@@ -20,4 +20,4 @@
 ## 🚀 Запуск проекта
 1. Клонируйте репозиторий:
    ```bash
-   git clone https://github.com/ТВОЙ_НИК/posmotri-v-okno-fd.git
+   git clone https://github.com/flesiks/posmotri-v-okno-fd.git
