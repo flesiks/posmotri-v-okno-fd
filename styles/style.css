@@ -16,6 +16,7 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  display: flex;
 }
 
 h1,
@@ -33,13 +34,19 @@ fieldset {
 }
 
 button {
-  appearance: none;   /* убирает системный стиль */
-  border: none;       /* убирает рамку */
-  background: none;   /* убирает фон */
-  padding: 0;         /* убирает внутренние отступы */
-  font: inherit;      /* наследует шрифт от родителя */
-  color: inherit;     /* наследует цвет текста */
-  cursor: pointer; 
+  appearance: none;
+  /* убирает системный стиль */
+  border: none;
+  /* убирает рамку */
+  background: none;
+  /* убирает фон */
+  padding: 0;
+  /* убирает внутренние отступы */
+  font: inherit;
+  /* наследует шрифт от родителя */
+  color: inherit;
+  /* наследует цвет текста */
+  cursor: pointer;
 }
 
 
@@ -62,9 +69,7 @@ ol {
 }
 
 
-.page {
-  display: flex;
-}
+
 
 .result {
   margin-right: 30px;
@@ -85,53 +90,17 @@ ol {
   padding-right: 7px;
 }
 
-.result__video {
-  width: 711px;
-  height: 486px;
+.result__video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* чтобы убрать возможные лишние отступы */
 }
 
 .search-form {
   display: flex;
   justify-content: space-between;
-}
-
-.content__video-card {
-  display: flex;
-}
-
-.content__video-card-description-container {
-  min-height: 103px;
-  min-width: 196px;
-}
-
-.content__list-container {
-  display: grid;
-  width: 398px;
-  height: 290px;
-  overflow: hidden;
-  overflow: scroll;
-  overflow-x: hidden;
-  gap: 30px;
-}
-
-.content__details {
-  width: 100%;
-  height: 100%;
-  font-family: "Oswald";
-  margin-top: 133px;
-}
-
-.result__video-container {
-  margin-bottom: 16px;
-  width: 711px;
-  height: 386px;
-}
-
-.result__video-container video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* видео заполняет контейнер */
 }
 
 .content__video-card {
@@ -143,16 +112,52 @@ ol {
   /* прижать к верху контейнера */
 }
 
+.content__video-card-description-container {
+  min-height: 103px;
+  min-width: 196px;
+  flex-grow: 1;
+  /* занимает всё свободное пространство */
+}
+
+.content__list-container {
+  display: grid;
+  width: 398px;
+  height: 290px;
+  overflow: hidden;
+  overflow: scroll;
+  gap: 30px;
+  position: relative;
+  /* и внутри этого блока */
+}
+
+.content__details {
+  width: 100%;
+  height: 100%;
+  font-family: "Oswald", sans-serif;
+  margin-top: 133px;
+}
+
+.result__video-container {
+  margin-bottom: 16px;
+  width: 711px;
+  height: 386px;
+  position: relative;
+}
+
+.result__video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* видео заполняет контейнер */
+}
+
+
+
 .content__video-card-thumbnail {
   min-width: 194px;
   height: 103px;
   object-fit: cover;
   object-position: center;
-}
-
-.content__video-card-description-container {
-  flex-grow: 1;
-  /* занимает всё свободное пространство */
 }
 
 .visually-hidden {
@@ -169,7 +174,7 @@ ol {
   /* label */
 
 
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -191,31 +196,30 @@ a.content__card-link {
   /* наследовать цвет текста от родителя */
   text-decoration: none;
   /* убрать подчёркивание */
-    display: block;
+  display: block;
 }
 
-.content__card-link_current{
+.content__card-link:active,
+.content__card-link_current {
   background-color: #545050;
 }
 
 
-.content__video-card-description-container:hover{
-    text-decoration: underline;
+
+.content__video-card-description-container:hover {
+  text-decoration: underline;
 }
 
-.content__card-link_current:focus-visible{
+.content__card-link_current:focus-visible {
   outline: 1px solid white;
-  padding-left: 30px;
-  padding-right: 30px;
 }
 
 .title {
   /* title */
 
   width: 259px;
-  height: 210px;
 
-  font-family: 'Oswald';
+  font-family: 'Oswald', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 75px;
@@ -239,9 +243,8 @@ a.content__card-link {
   /* Белгород */
 
   width: 196px;
-  height: 30px;
 
-  font-family: 'Oswald';
+  font-family: 'Oswald', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 30px;
@@ -303,6 +306,7 @@ a.content__card-link {
   align-items: center;
   width: fit-content;
   gap: 5px;
+  cursor: pointer;
 }
 
 input[type="text"] {
@@ -313,6 +317,7 @@ input[type="text"] {
   padding-left: 2px;
   padding-right: 2px;
   border: none;
+  color: #FFFFFF;
   /* убираем все границы */
   border-top: 1px solid #ccc;
   /* верхняя граница */
@@ -321,7 +326,7 @@ input[type="text"] {
   background-color: #1b1919;
   /* фон */
   /* цвет текста */
-  font-family: Arial, sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
   /* шрифт */
   font-size: 14px;
   /* размер шрифта */
@@ -329,36 +334,35 @@ input[type="text"] {
 }
 
 .search-form__textfield::placeholder {
-/* Санкт-Петербург, например */
+  /* Санкт-Петербург, например */
 
-width: 211px;
-height: 22px;
+  width: 211px;
+  height: 22px;
 
-font-family: 'Fira Sans Condensed';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 22px;
-/* identical to box height */
-
-color: rgba(255, 255, 255, 0.7);
-
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
-
-}
-
-.search-form__textfield::placeholder {
   color: rgb(255 255 255 / 0.7);
-  /* цвет подсказки */
+
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+
+  color: rgba(255, 255, 255, 0.7);
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
 }
 
 /* сброс стандартного outline при фокусе */
 .search-form__textfield:focus {
   outline: none;
+  outline: 1px solid #fff;
+  outline-offset: 4px;
 }
 
 /* хитрый приём: лейбл получает рамку, если внутри него поле в состоянии :focus-visible */
@@ -370,83 +374,77 @@ flex-grow: 0;
 }
 
 .search-form__pseudo-checkbox {
-  border: 1px solid #fff;   /* рамка квадрата */
+  border: 1px solid #fff;
+  /* рамка квадрата */
   padding: 8px;
   display: inline-block;
   position: relative;
 }
 
-.search-form__pseudo-checkbox::after{
-  display: block;       
+.search-form__pseudo-checkbox::after {
+  display: block;
   content: "";
   background-color: white;
   padding: -2px;
   opacity: 0;
   position: absolute;
-  top: 2px;    /* отступ сверху */
-  left: 2px;   /* отступ слева */
-  right: 2px;  /* отступ справа */
-  bottom: 2px; /* отступ снизу */
+  top: 2px;
+  /* отступ сверху */
+  left: 2px;
+  /* отступ слева */
+  right: 2px;
+  /* отступ справа */
+  bottom: 2px;
+  /* отступ снизу */
 }
 
-.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
-  opacity: 1; /* квадрат становится полностью видимым */
+.search-form__checkbox:checked+.search-form__pseudo-checkbox::after {
+  opacity: 1;
+  /* квадрат становится полностью видимым */
 }
 
 .search-form__label:hover .search-form__label-text {
   text-decoration: underline;
 }
 
-.search-form__textfield:focus{
-    outline: 1px solid #fff;
-  outline-offset: 4px;
-}
-
-.button{
+.button {
   /* Найти */
 
-font-family: 'Fira Sans Condensed';
- background-color: transparent;
- border: 1px solid white;
-
+  font-family: 'Fira Sans Condensed', sans-serif;
+  background-color: transparent;
+  border: 1px solid white;
 }
 
-.button:hover{
+.button:hover {
   text-decoration: underline;
 }
 
-.button:active{
+.button:active {
   background-color: #545050;
   text-decoration: none;
 }
 
-.button:focus-visible{
+.button:focus-visible {
   outline: 1px solid white;
- outline-offset: 2px; 
+  outline-offset: 2px;
 }
 
-.search-form__submit-button{
+.search-form__submit-button {
   width: 194px;
   height: 34px;
-  align-self: flex-end;  /* прижимаем кнопку к нижнему краю контейнера */
-}
-.more-button{
-  width: 100%;          /* растягиваем на всю ширину контейнера */
-  height: 33px;  
+  align-self: flex-end;
+  /* прижимаем кнопку к нижнему краю контейнера */
 }
 
-.search-form__label{
-  cursor: pointer;
+.more-button {
+  width: 100%;
+  /* растягиваем на всю ширину контейнера */
+  height: 33px;
 }
 
-.preloader{
-   width: 100%;   /* перекрывает весь контейнер */
-  height: 100%;  /* перекрывает весь контейнер */
-}
-
-.result__video-container{
-  position: relative;
-}
-.content__list-container {
-  position: relative; /* и внутри этого блока */
+.preloader {
+  width: 100%;
+  /* перекрывает весь контейнер */
+  height: 100%;
+  /* перекрывает весь контейнер */
 }
